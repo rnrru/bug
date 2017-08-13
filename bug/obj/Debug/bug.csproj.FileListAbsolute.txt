@@ -1,1 +1,8 @@
 D:\proj\bug\bug\bin\Debug\bug.exe.config
+D:\proj\bug\bug\bin\Debug\bug.exe
+D:\proj\bug\bug\bin\Debug\bug.pdb
+D:\proj\bug\bug\obj\Debug\bug.csprojResolveAssemblyReference.cache
+D:\proj\bug\bug\obj\Debug\bug.Properties.Resources.resources
+D:\proj\bug\bug\obj\Debug\bug.csproj.GenerateResource.Cache
+D:\proj\bug\bug\obj\Debug\bug.exe
+D:\proj\bug\bug\obj\Debug\bug.pdb
