@@ -27,7 +27,7 @@ namespace bug
 
         private void button2_Click(object sender, EventArgs e)
         {
-            cP.Close_conncet();
+            cP.Close_connect();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -37,8 +37,20 @@ namespace bug
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string str = cP.Read_str();
-            textBox1.Text = str;
+            bool _continue = true;
+            while (_continue)
+            {
+                try
+                {
+                    string message = cP.Read_str();
+                    richTextBox1.Text += message;
+                }
+                catch (TimeoutException) { }
+                //finally
+                //{
+                //    _continue = false;
+                //}
+            }
         }
     }
 }

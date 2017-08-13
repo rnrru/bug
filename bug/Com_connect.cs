@@ -24,6 +24,7 @@ namespace bug
                                          StopBits.One);
             _serialPort.Handshake = Handshake.None;
             _serialPort.ReadTimeout = 500;
+            _serialPort.WriteTimeout = 500;
         }
 
         public void Wrire_str(string writeStr)
