@@ -17,12 +17,24 @@ namespace bug
             InitializeComponent();
         }
         Com_connect cP = new Com_connect();
+
+        RobotGeometry rG = new RobotGeometry();
+
+        RobotGeometry rG1 = new RobotGeometry(40,40,20,20);
+
+        BodyCenterOffset bodyCO = new BodyCenterOffset();
+
+        FeetPosition fP = new FeetPosition();
+
+        BodyIK bIK = new BodyIK();
+        int k = 1;
         private void button1_Click(object sender, EventArgs e)
         {
             string com = "Com6";
             //Com_connect cP = new Com_connect();
             cP.Create_connect(com);
-            cP.Open_connect();      
+            cP.Open_connect();   
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -51,6 +63,21 @@ namespace bug
                 //    _continue = false;
                 //}
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            List<double> bodyCenterOffsetsX = new List<double>();
+            List<double> bodyCenterOffsetsY = new List<double>();
+
+            bodyCO.bodyCenterOffset();
+
+            bodyCenterOffsetsX = bodyCO.putBodyOffsetsX();
+            bodyCenterOffsetsY = bodyCO.putBodyOffsetsY();
+
+            fP.feetPosition();
+
+            bIK.bodyIK(bodyCenterOffsetsX, bodyCenterOffsetsY);
         }
     }
 }

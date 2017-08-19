@@ -43,7 +43,7 @@ namespace bug
             _serialPort.Open();
         }
 
-        public void Close_conncet()
+        public void Close_connect()
         {
             _serialPort.Close();
         }
