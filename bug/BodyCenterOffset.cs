@@ -8,15 +8,31 @@ namespace bug
 {
     class BodyCenterOffset : RobotGeometry
     {
-        public double[] bodyCenterOffsetX = new double[6];
-        public double[] bodyCenterOffsetY = new double[6];
+        double[] bodyCenterOffsetX = new double[6];
+        double[] bodyCenterOffsetY = new double[6];
 
-        public List<double> bodyCenterOffsetsX = new List<double>();
-        public List<double> bodyCenterOffsetsY = new List<double>();
-        public void bodyCenterOffset()
+        List<double> bodyCenterOffsetsX = new List<double>();
+        List<double> bodyCenterOffsetsY = new List<double>();
+
+        double bodySideLength;
+
+        double bodyCenterOffset1;       //bodyCenterOffsetX
+        double bodyCenterOffset2;       //bodyCenterOffsetZ
+        public BodyCenterOffset()
         {
-            double bodyCenterOffset1 = bodySideLength / 2;
-            double bodyCenterOffset2 = Math.Sqrt(bodySideLength * bodySideLength - bodyCenterOffset1 * bodyCenterOffset1);
+        }
+        public BodyCenterOffset(double bodySideLength)
+        {
+            this.bodySideLength = bodySideLength;
+        }
+
+        public void bodyCenterOffset(double bodySideLength)
+        {
+            this.bodySideLength = bodySideLength;
+
+            bodyCenterOffset1 = bodySideLength / 2;
+            bodyCenterOffset2 = Math.Sqrt(bodySideLength * bodySideLength 
+                                - bodyCenterOffset1 * bodyCenterOffset1);
                        
             bodyCenterOffsetX[0] = bodyCenterOffset1;
             bodyCenterOffsetX[1] = bodySideLength;

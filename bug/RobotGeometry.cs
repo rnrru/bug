@@ -10,18 +10,11 @@ namespace bug
     {
         public double pi = 3.14159;
         //Robot Geometry
-        public double bodySideLength = 45.0;
-        public double coxaLength = 12.0;
-        public double femurLength = 35.0;
-        public double tibiaLength = 72.0;
+        public double bodySideLength;    //Длина тела 
+        public double coxaLength;             
+        public double femurLength;
+        public double tibiaLength;
 
-        //feet position
-        public double[] feetPositionLeg1 = new double[3];
-        public double[] feetPositionLeg2 = new double[3];
-        public double[] feetPositionLeg3 = new double[3];
-        public double[] feetPositionLeg4 = new double[3];
-        public double[] feetPositionLeg5 = new double[3];
-        public double[] feetPositionLeg6 = new double[3];
 
         public RobotGeometry()
         {
@@ -35,6 +28,15 @@ namespace bug
             this.tibiaLength = tibiaLength;
         }
 
+        public double[] returnRG()
+        {
+            double[] robotG = new double[4];
+            robotG[0] = bodySideLength;
+            robotG[1] = coxaLength;
+            robotG[2] = femurLength;
+            robotG[3] = tibiaLength;
+                return robotG;
+        }
     }
 
 }

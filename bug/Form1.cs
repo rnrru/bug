@@ -18,15 +18,13 @@ namespace bug
         }
         Com_connect cP = new Com_connect();
 
-        RobotGeometry rG = new RobotGeometry();
-
-        RobotGeometry rG1 = new RobotGeometry(40,40,20,20);
+        RobotGeometry rG = new RobotGeometry(45,12,35,72);
 
         BodyCenterOffset bodyCO = new BodyCenterOffset();
 
-        FeetPosition fP = new FeetPosition();
+        FeetPosition fP = new FeetPosition(45, 12, 35, 72);
 
-        BodyIK bIK = new BodyIK();
+        BodyIK bIK = new BodyIK(45, 12, 35, 72);
         int k = 1;
         private void button1_Click(object sender, EventArgs e)
         {
@@ -70,14 +68,22 @@ namespace bug
             List<double> bodyCenterOffsetsX = new List<double>();
             List<double> bodyCenterOffsetsY = new List<double>();
 
-            bodyCO.bodyCenterOffset();
+            double[] mas = new double[4];
+            mas = rG.returnRG();
+
+            bodyCO.bodyCenterOffset(mas[0]);
 
             bodyCenterOffsetsX = bodyCO.putBodyOffsetsX();
             bodyCenterOffsetsY = bodyCO.putBodyOffsetsY();
 
             fP.feetPosition();
 
+            double[,] mass = new double[6,3];
+            mass = fP.returnFP();
+
+
             bIK.bodyIK(bodyCenterOffsetsX, bodyCenterOffsetsY);
+
         }
     }
 }

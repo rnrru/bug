@@ -16,6 +16,19 @@ namespace bug
         public double[] feetPositionLeg5 = new double[3];
         public double[] feetPositionLeg6 = new double[3];
 
+        public double[,] feetPositionLegs = new double[6,3];
+
+        public FeetPosition()
+        {
+        }
+
+        public FeetPosition(double bodySideLength, double coxaLength, double femurLength, double tibiaLength)
+        {
+            this.bodySideLength = bodySideLength;
+            this.coxaLength = coxaLength;
+            this.femurLength = femurLength;
+            this.tibiaLength = tibiaLength;
+        }
         public void feetPosition()
         {
             feetPositionLeg1[0] = Math.Cos(60 * pi / 180) * (coxaLength + femurLength);
@@ -41,6 +54,19 @@ namespace bug
             feetPositionLeg6[0] = -feetPositionLeg1[0];
             feetPositionLeg6[1] = tibiaLength;
             feetPositionLeg6[2] = feetPositionLeg1[2];
+        }
+
+        public double[,] returnFP()
+        {
+            for (int i =0;i<6;i++)
+            {
+                for(int j = 0; j<3;j++)
+                {
+                    feetPositionLegs[i,j] = 0.5;
+                }
+            }
+
+            return new double [6,3];
         }
     }
 }
