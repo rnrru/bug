@@ -25,7 +25,9 @@ namespace bug
         FeetPosition fP = new FeetPosition(45, 12, 35, 72);
 
         BodyIK bIK = new BodyIK(45, 12, 35, 72);
-        int k = 1;
+
+        LegIK lIK = new LegIK(45, 12, 35, 72);
+        
         private void button1_Click(object sender, EventArgs e)
         {
             string com = "Com6";
@@ -68,22 +70,25 @@ namespace bug
             List<double> bodyCenterOffsetsX = new List<double>();
             List<double> bodyCenterOffsetsY = new List<double>();
 
-            double[] mas = new double[4];
-            mas = rG.returnRG();
+            double[] mas = rG.returnRG();
 
             bodyCO.bodyCenterOffset(mas[0]);
-
             bodyCenterOffsetsX = bodyCO.putBodyOffsetsX();
             bodyCenterOffsetsY = bodyCO.putBodyOffsetsY();
 
             fP.feetPosition();
 
-            double[,] mass = new double[6,3];
-            mass = fP.returnFP();
+            double[,] mass = fP.returnFP(); 
 
+            bIK.bodyIK(bodyCenterOffsetsX, bodyCenterOffsetsY, mass);
+            bIK.returnBIKs();
+            bIK.newPos(mass);
 
-            bIK.bodyIK(bodyCenterOffsetsX, bodyCenterOffsetsY);
+            double[] returnPosX = bIK.returnPosX();
+            double[] returnPosY = bIK.returnPosY();
+            double[] returnPosZ = bIK.returnPosZ();
 
+            lIK.legIK(returnPosX,returnPosY,returnPosZ);
         }
     }
 }

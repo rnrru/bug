@@ -9,13 +9,6 @@ namespace bug
     class FeetPosition : RobotGeometry
     {
         //feet position
-        public double[] feetPositionLeg1 = new double[3];
-        public double[] feetPositionLeg2 = new double[3];
-        public double[] feetPositionLeg3 = new double[3];
-        public double[] feetPositionLeg4 = new double[3];
-        public double[] feetPositionLeg5 = new double[3];
-        public double[] feetPositionLeg6 = new double[3];
-
         public double[,] feetPositionLegs = new double[6,3];
 
         public FeetPosition()
@@ -31,42 +24,34 @@ namespace bug
         }
         public void feetPosition()
         {
-            feetPositionLeg1[0] = Math.Cos(60 * pi / 180) * (coxaLength + femurLength);
-            feetPositionLeg1[1] = tibiaLength;
-            feetPositionLeg1[2] = Math.Sin(60 * pi / 180) * (coxaLength + femurLength);
+            feetPositionLegs[0, 0] = Math.Cos(60 * pi / 180) * (coxaLength + femurLength);
+            feetPositionLegs[0, 1] = tibiaLength;
+            feetPositionLegs[0, 2] = Math.Sin(60 * pi / 180) * (coxaLength + femurLength);
 
-            feetPositionLeg2[0] = coxaLength + femurLength;
-            feetPositionLeg2[1] = tibiaLength;
-            feetPositionLeg2[2] = 0;
+            feetPositionLegs[1,0] = coxaLength + femurLength;
+            feetPositionLegs[1,1] = tibiaLength;
+            feetPositionLegs[1,2] = 0;
 
-            feetPositionLeg3[0] = feetPositionLeg1[0];
-            feetPositionLeg3[1] = tibiaLength;
-            feetPositionLeg3[2] = Math.Sin(-60 * pi / 180) * (coxaLength + femurLength);
+            feetPositionLegs[2,0] = feetPositionLegs[0,0];
+            feetPositionLegs[2,1] = tibiaLength;
+            feetPositionLegs[2,2] = Math.Sin(-60 * pi / 180) * (coxaLength + femurLength);
 
-            feetPositionLeg4[0] = -feetPositionLeg1[0];
-            feetPositionLeg4[1] = tibiaLength;
-            feetPositionLeg4[2] = feetPositionLeg3[2];
+            feetPositionLegs[3,0] = -feetPositionLegs[0,0];
+            feetPositionLegs[3,1] = tibiaLength;
+            feetPositionLegs[3,2] = feetPositionLegs[2,2];
 
-            feetPositionLeg5[0] = -feetPositionLeg2[0];
-            feetPositionLeg5[1] = tibiaLength;
-            feetPositionLeg5[2] = 0;
+            feetPositionLegs[4,0] = -feetPositionLegs[1,0];
+            feetPositionLegs[4,1] = tibiaLength;
+            feetPositionLegs[5,2] = 0;
 
-            feetPositionLeg6[0] = -feetPositionLeg1[0];
-            feetPositionLeg6[1] = tibiaLength;
-            feetPositionLeg6[2] = feetPositionLeg1[2];
+            feetPositionLegs[5,0] = -feetPositionLegs[0,0];
+            feetPositionLegs[5,1] = tibiaLength;
+            feetPositionLegs[5,2] = feetPositionLegs[0,2]; 
         }
 
         public double[,] returnFP()
         {
-            for (int i =0;i<6;i++)
-            {
-                for(int j = 0; j<3;j++)
-                {
-                    feetPositionLegs[i,j] = 0.5;
-                }
-            }
-
-            return new double [6,3];
+            return feetPositionLegs;
         }
     }
 }
