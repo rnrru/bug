@@ -63,6 +63,20 @@ namespace bug
             }
         }
 
+        public void changPos(int posX, int posY, int posZ)
+        {
+            this.posX = posX;
+            this.posY = posY;
+            this.posZ = posZ;
+        }
+
+        public void changRot(int rotX, int rotY, int rotZ)
+        {
+            this.rotX = rotX;
+            this.rotY = rotY;
+            this.rotZ = rotZ;
+        }
+
         public void newPos(double[,] feetPositionLegs)
         {
             for (int i = 0; i < 6; i++)
