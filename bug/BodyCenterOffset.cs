@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace bug
 {
-    class BodyCenterOffset : RobotGeometry
+    //
+    class BodyCenterOffset : RobotGeometry 
     {
         double[] bodyCenterOffsetX = new double[6];
         double[] bodyCenterOffsetY = new double[6];
@@ -26,10 +27,9 @@ namespace bug
             this.bodySideLength = bodySideLength;
         }
 
-        public void bodyCenterOffset(double bodySideLength)
+        public void bodyCenterOffset()
         {
-            this.bodySideLength = bodySideLength;
-
+            
             bodyCenterOffset1 = bodySideLength / 2;
             bodyCenterOffset2 = Math.Sqrt(bodySideLength * bodySideLength 
                                 - bodyCenterOffset1 * bodyCenterOffset1);

@@ -34,7 +34,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button5 = new System.Windows.Forms.Button();
             this.rotationZ = new System.Windows.Forms.TextBox();
             this.rotationY = new System.Windows.Forms.TextBox();
             this.rotationX = new System.Windows.Forms.TextBox();
@@ -59,6 +58,12 @@
             this.button15 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
+            this.gaits = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button18 = new System.Windows.Forms.Button();
+            this.button19 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -100,6 +105,7 @@
             // 
             // button4
             // 
+            this.button4.Enabled = false;
             this.button4.Location = new System.Drawing.Point(12, 186);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
@@ -115,16 +121,6 @@
             this.richTextBox1.Size = new System.Drawing.Size(257, 442);
             this.richTextBox1.TabIndex = 6;
             this.richTextBox1.Text = "";
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(451, 270);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "Start";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // rotationZ
             // 
@@ -342,11 +338,71 @@
             this.button17.UseVisualStyleBackColor = true;
             this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
+            // gaits
+            // 
+            this.gaits.Location = new System.Drawing.Point(697, 83);
+            this.gaits.Name = "gaits";
+            this.gaits.Size = new System.Drawing.Size(32, 20);
+            this.gaits.TabIndex = 58;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(693, 26);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(26, 13);
+            this.label7.TabIndex = 57;
+            this.label7.Text = "Gait";
+            // 
+            // button18
+            // 
+            this.button18.Location = new System.Drawing.Point(696, 109);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(33, 23);
+            this.button18.TabIndex = 56;
+            this.button18.Text = "button18";
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
+            // button19
+            // 
+            this.button19.Location = new System.Drawing.Point(696, 54);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(33, 23);
+            this.button19.TabIndex = 55;
+            this.button19.Text = "button19";
+            this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(449, 208);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 59;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(581, 208);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 60;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 480);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.gaits);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.button18);
+            this.Controls.Add(this.button19);
             this.Controls.Add(this.rotationZ);
             this.Controls.Add(this.rotationY);
             this.Controls.Add(this.rotationX);
@@ -371,7 +427,6 @@
             this.Controls.Add(this.button15);
             this.Controls.Add(this.button16);
             this.Controls.Add(this.button17);
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -380,6 +435,7 @@
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -393,7 +449,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox rotationZ;
         private System.Windows.Forms.TextBox rotationY;
         private System.Windows.Forms.TextBox rotationX;
@@ -418,6 +473,12 @@
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.TextBox gaits;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button5;
     }
 }
 
